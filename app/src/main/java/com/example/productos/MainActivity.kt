@@ -237,6 +237,8 @@ fun Instagram() {
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(start = 24.dp, end = 24.dp)
         )
+
+
     }
 
 }
