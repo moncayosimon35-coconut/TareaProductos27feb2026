@@ -200,3 +200,7 @@ fun Tutorial(){
         )
     }
 }
+
+@Preview(showSystemUi = true)
+@Composable
+fun Instagram(){}
