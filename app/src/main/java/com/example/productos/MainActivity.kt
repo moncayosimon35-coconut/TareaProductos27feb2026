@@ -14,8 +14,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -27,7 +29,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            InterfazProducto()
+            Tutorial()
 
         }
     }
@@ -162,3 +164,38 @@ fun InterfazProducto() {
     }
 }
 
+@Preview(showSystemUi = true)
+@Composable
+fun Tutorial(){
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White)
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.oceanbanner),
+            contentDescription = "playa",
+            modifier = Modifier.fillMaxWidth(),
+            contentScale = ContentScale.FillWidth
+        )
+
+        Text(
+            text = "Jetpack Compose tutorial",
+            fontSize = 24.sp,
+            modifier = Modifier.padding(16.dp)
+        )
+
+        Text(
+            text = "Jetpack Compose is ...",
+            modifier = Modifier.padding(start = 16.dp, end = 16.dp),
+            textAlign = TextAlign.Justify
+        )
+
+
+        Text(
+            text = "In this tutorial...",
+            modifier = Modifier.padding(16.dp),
+            textAlign = TextAlign.Justify
+        )
+    }
+}
