@@ -1,5 +1,6 @@
 package com.example.productos
 
+import android.R.attr.fontWeight
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -8,11 +9,13 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -29,7 +32,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Tutorial()
+            Instagram()
 
         }
     }
@@ -71,8 +74,7 @@ fun InterfazProducto() {
                 ) {
                     Image(
                         painter = painterResource(id = R.drawable.corazon), // Tu imagen corazon.png
-                        contentDescription = "Favorito",
-                        modifier = Modifier.fillMaxSize()
+                        contentDescription = "Favorito", modifier = Modifier.fillMaxSize()
                     )
                 }
             }
@@ -93,7 +95,12 @@ fun InterfazProducto() {
 
 
             Spacer(modifier = Modifier.height(16.dp))
-            Spacer(modifier = Modifier.fillMaxWidth().height(1.dp).background(Color(0xFFEEEEEE)))
+            Spacer(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(1.dp)
+                    .background(Color(0xFFEEEEEE))
+            )
 
 
             Column(
@@ -121,9 +128,7 @@ fun InterfazProducto() {
 
 
                 Text(
-                    text = "Descripción.",
-                    fontSize = 14.sp,
-                    color = Color.Gray
+                    text = "Descripción.", fontSize = 14.sp, color = Color.Gray
                 )
             }
         }
@@ -133,8 +138,7 @@ fun InterfazProducto() {
 
 
         Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
+            modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
 
             Row(
@@ -166,7 +170,7 @@ fun InterfazProducto() {
 
 @Preview(showSystemUi = true)
 @Composable
-fun Tutorial(){
+fun Tutorial() {
     //se hizo una columna la cual tiene una imagen y tres textos
     Column(
         modifier = Modifier
@@ -181,8 +185,7 @@ fun Tutorial(){
         )
 
         Text(
-            text = "Jetpack Compose tutorial",
-            fontSize = 24.sp,//especificaciones
+            text = "Jetpack Compose tutorial", fontSize = 24.sp,//especificaciones
             modifier = Modifier.padding(16.dp)
         )
 
@@ -203,4 +206,37 @@ fun Tutorial(){
 
 @Preview(showSystemUi = true)
 @Composable
-fun Instagram(){}
+fun Instagram() {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Image(
+            painter = painterResource(R.drawable.oceanbanner),
+            contentDescription = "foto perfil", modifier = Modifier
+                .size(120.dp)
+                .clip(CircleShape),
+            contentScale = ContentScale.Crop
+        )
+
+        Text(
+            text = "Pepito Mitocondria",
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color.Black,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(all = 24.dp)
+        )
+
+        Text(
+            text = "Desarrollador Android",
+            fontSize = 20.sp,
+            color = Color.Black,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(start = 24.dp, end = 24.dp)
+        )
+    }
+
+}
