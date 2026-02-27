@@ -167,28 +167,29 @@ fun InterfazProducto() {
 @Preview(showSystemUi = true)
 @Composable
 fun Tutorial(){
+    //se hizo una columna la cual tiene una imagen y tres textos
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.White)
     ) {
-        Image(
+        Image( //la imagen se seleccionó de una web de imagenes gratis
             painter = painterResource(id = R.drawable.oceanbanner),
             contentDescription = "playa",
-            modifier = Modifier.fillMaxWidth(),
-            contentScale = ContentScale.FillWidth
+            modifier = Modifier.fillMaxWidth(), //llenar todo el ancho
+            contentScale = ContentScale.FillWidth //que la imagen pueda ajustarse bien en todo el ancho
         )
 
         Text(
             text = "Jetpack Compose tutorial",
-            fontSize = 24.sp,
+            fontSize = 24.sp,//especificaciones
             modifier = Modifier.padding(16.dp)
         )
 
         Text(
             text = "Jetpack Compose is ...",
             modifier = Modifier.padding(start = 16.dp, end = 16.dp),
-            textAlign = TextAlign.Justify
+            textAlign = TextAlign.Justify //asi se justifica el texto
         )
 
 
